@@ -1,17 +1,23 @@
 class Word < ActiveRecord::Base
 
-  def self.find_anagram(word)
-    anagrams = []
-    word_array = word.downcase.split(//) # place the characters of the word into an array
-    combinations = word_array.permutation.map{ |i| i.join } # joins the 3 character array with all permutations and inserts each into output array.
-    
-    combinations.each do |potential|
-      if Word.find_by_text(potential).present?
-        anagrams << potential
-      end
+  def self.find_anagram(string)
+    anagrams = [] #array to store  anagrams.
+    letters = string.split(//) # converts word to an array of letters.
+    combinations = []
+
+    letters.each do |letter| #loop through each letter in letters
+      remaining = letters.select { |1| 1 != letter }
+
+      anagrams << letter + ramaining.join('')
+      anagrams << letter + reverse_letters(remaining).join('')
     end
     
-    anagrams
+    anagrams.each do |potential|   #Returns anagram array
+      if Word.find_by_text(potential).present?
+        combinations << potential
+      end
+    end
+    combinations
   end
 
 
