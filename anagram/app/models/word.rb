@@ -1,15 +1,19 @@
 class Word < ActiveRecord::Base
 
   def self.find_anagram(word)
-    if word.length == 3
-      word_array = word.split(//)
-      drow_array = word_array.permutation.map{|i| i.join}
-
-      return drow_array
-    else
-      puts "Incorrect word length. Please try again with a three letter word."
+    anagrams = []
+    word_array = word.downcase.split(//) # place the characters of the word into an array
+    combinations = word_array.permutation.map{ |i| i.join } # joins the 3 character array with all permutations and inserts each into output array.
+    
+    combinations.each do |potential|
+      if Word.find_by_text(potential).present?
+        anagrams << potential
+      end
     end
+    
+    anagrams
   end
+
 
   def self.reverse_letters (letters)
     length= letters.length
