@@ -12,5 +12,10 @@ end
 
 post '/' do
   @word = params[:word]
-  redirect "/anagrams/#{@word}"
+  if Word.valid_input?(@word)
+  	redirect "/anagrams/#{@word}"
+  else
+  	@error = "You have an invalid input. Please try again with a three lettered word."
+  	erb :index
+  end
 end

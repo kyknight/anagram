@@ -6,9 +6,9 @@ class Word < ActiveRecord::Base
     combinations = []
 
     letters.each do |letter| #loop through each letter in letters
-      remaining = letters.select { |1| 1 != letter }
+      remaining = letters.select { |l| l != letter}
 
-      anagrams << letter + ramaining.join('')
+      anagrams << letter + remaining.join('')
       anagrams << letter + reverse_letters(remaining).join('')
     end
     
@@ -30,4 +30,33 @@ class Word < ActiveRecord::Base
     end
     reverse_letters
   end
+
+  def self.three_letters?(input)
+      if input.length == 3
+          true
+      else 
+          false
+      end
+  end
+
+  def self.distinct_letters?(input)
+      letter_array = input.chars
+      unique_letters = letter_array.uniq
+      if unique_letters.length < letter_array.length
+         false
+      else
+         true
+      end
+  end
+
+  def self.valid_input?(input)
+    if three_letters?(input) && distinct_letters?(input)
+      true
+    else
+      false
+    end
+  end
+
 end
+
+

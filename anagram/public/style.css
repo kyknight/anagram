@@ -21,6 +21,14 @@ div{
 	color: silver;
 }
 
+.well{
+	width: 50%;
+}
+
+.alert{
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
 ul{
 	list-style: none;
 	text-align: center;
