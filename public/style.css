@@ -1,0 +1,45 @@
+body{
+	background: #f8f8f8 url("images/tiles-03.png") no-repeat fixed center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+input[type=text]{
+	width: 25%;
+	border: none;
+	border-bottom: 2px solid gray;
+	background-color: #f8f8f8;
+	text-align: center;
+}
+
+h1 h2{
+	text-align: center;
+	color: lightsteelblue;
+}
+
+thead tbody tr td{
+	text-align: center;
+	color: silver;
+}
+
+div{
+	text-align: center;
+	color: silver;
+}
+
+.well{
+	width: 50%;
+}
+
+.alert{
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+ul{
+	list-style: none;
+	text-align: center;
+}
+
+footer {
+	text-align: right;
+	font-size: 8px;
+}
