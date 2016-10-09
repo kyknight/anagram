@@ -11,9 +11,14 @@ input[type=text]{
 	text-align: center;
 }
 
-h1{
+h1 h2{
 	text-align: center;
 	color: lightsteelblue;
+}
+
+thead tbody tr td{
+	text-align: center;
+	color: silver;
 }
 
 div{
