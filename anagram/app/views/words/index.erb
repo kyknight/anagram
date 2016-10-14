@@ -7,10 +7,15 @@
    <tbody>
 	    <% if !@word.all.nil? %>
 	    <% @word.sort.each do |word| %>
+
 	   <tr>
 	    <td><a href="<%= "/words/#{word.id}" %>"><%= word.text %></a></td>
 		<td><%= word.letters %></td>
+		<td>
+    	<a href="<%= "/words/#{word.id}/edit" %>">Edit</a>
+  	   </td>
 	   </tr>
+
     	<% end %>
     	<% end %>
    </tbody>

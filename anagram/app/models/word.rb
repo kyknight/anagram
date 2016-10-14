@@ -1,5 +1,6 @@
 class Word < ActiveRecord::Base
-  before_create :add_letters
+  #before_create :add_letters
+  before_save :add_letters
 
   def add_letters
       characters = self.text.chars
@@ -29,7 +30,7 @@ class Word < ActiveRecord::Base
 
 
   def self.reverse_letters (letters)
-    length= letters.length
+    length = letters.length
     reverse_letters = Array.new(length)
 
     letters.each_with_index do |letter, index|
@@ -60,7 +61,7 @@ class Word < ActiveRecord::Base
     if three_letters?(input) && distinct_letters?(input)
       true
     else
-      raise Exception.new("Word must be less than or equal to 3 characters.")
+      raise Exception.new("Please Enter a three letter word.")
     end
   end
 

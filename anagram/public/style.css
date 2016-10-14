@@ -3,11 +3,11 @@ body{
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-input[type=text]{
+input{
 	width: 25%;
 	border: none;
 	border-bottom: 2px solid gray;
-	background-color: #f8f8f8;
+	background-color: white;
 	text-align: center;
 }
 
@@ -18,7 +18,7 @@ h1 h2{
 
 thead tbody tr td{
 	text-align: center;
-	color: silver;
+	color: skyblue;
 }
 
 div{
@@ -28,6 +28,10 @@ div{
 
 .well{
 	width: 50%;
+}
+
+.form-control{
+	align: center;
 }
 
 .alert{
