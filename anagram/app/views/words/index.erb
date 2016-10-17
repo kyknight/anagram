@@ -9,11 +9,17 @@
 	    <% @word.sort.each do |word| %>
 
 	   <tr>
-	    <td><a href="<%= "/words/#{word.id}" %>"><%= word.text %></a></td>
-		<td><%= word.letters %></td>
+	    <td><a href="<%= "/words/#{word.id}" %>"><%= "#{word.text}" %></a></td>
+		<td><%= "#{word.letters}" %></td>
 		<td>
     	<a href="<%= "/words/#{word.id}/edit" %>">Edit</a>
   	   </td>
+  	   	<td>
+  	   	<form action="<%= "/words/#{word.id}" %>" method="post">
+            <input type="hidden" name="_method" value="delete" />
+            <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+        </form>
+        </td>
 	   </tr>
 
     	<% end %>

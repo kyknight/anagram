@@ -39,31 +39,32 @@ class Word < ActiveRecord::Base
     reverse_letters
   end
 
-  def self.three_letters?(input)
-      if input.length == 3
-          true
-      else 
-          false
-      end
-  end
+  #def self.three_letters?(input)
+   #   if input.length == 3
+    #      true
+     # else 
+      #    false
+      #end
+  #end
 
-  def self.distinct_letters?(input)
-      letter_array = input.chars
-      unique_letters = letter_array.uniq
-      if unique_letters.length == letter_array.length
-         true
-      else
-         false
-      end
-  end
+  #def self.distinct_letters?(input)
+      #letter_array = input.chars
+      #unique_letters = letter_array.uniq
+      #if unique_letters.length == letter_array.length
+      #   true
+     # else
+    #     false
+   #   end
+  #end
 
   def self.valid_input?(input)
-    if three_letters?(input) && distinct_letters?(input)
-      true
+    if Word.find_by_text(input).present? 
+        false
     else
-      raise Exception.new("Please Enter a three letter word.")
+        raise Exception.new("Congrats! The word cannot be found. Add it now!")
     end
   end
+
 
 end
 
